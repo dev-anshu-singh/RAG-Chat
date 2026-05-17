@@ -4,12 +4,11 @@ import uuid
 from fastapi import APIRouter, UploadFile, File, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-
+from app.graph.workflow import graph_app
 from app.core.config import settings
 from app.db.database import get_db, DocumentMetadata, ProcessingStatus
 from app.api.schemas import QueryRequest, QueryResponse, DocumentResponse
 from app.services.document_processor import process_document_service
-from app.graph.workflow import graph_app  # Assuming you saved the graph code here
 
 router = APIRouter()
 
