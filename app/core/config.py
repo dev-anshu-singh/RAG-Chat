@@ -1,19 +1,21 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class Settings(BaseSettings):
     gemini_api_key: str
     cohere_api_key: str
 
-    langsmith_tracing: str
+    langsmith_tracing_v2: str
     langsmith_endpoint: str
     langsmith_api_key: str
     langsmith_project: str
 
-    chunk_size: int = 1000
+    chunk_size: int = 2000
     chunk_overlap: int = 200
 
-    llm_model: str = "gemini-3.1-flash-lite"
+    llm_model: str = "gemini-2.5-flash"
     gemini_embedding_model : str = "gemini-embedding-001"
     sqlite_db_path: str = "sqlite:///./data/metadata.db"
     chroma_persist_dir: str = "./data/chroma_db"
