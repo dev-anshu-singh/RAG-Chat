@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     chunk_overlap: int = 200
 
     llm_model: str = "gemini-3.1-flash-lite"
+    gemini_embedding_model : str = "gemini-embedding-001"
     sqlite_db_path: str = "sqlite:///./data/metadata.db"
     chroma_persist_dir: str = "./data/chroma_db"
     upload_dir: str = "./data/uploads"
