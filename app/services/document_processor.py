@@ -4,8 +4,8 @@ from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-
-from app.config import settings
+from app.core.llm import get_embeddings
+from app.core.config import settings
 from app.db.database import DocumentMetadata, ProcessingStatus
 
 # Set up basic logging so you can see errors in your Docker console
@@ -46,10 +46,7 @@ def process_document_service(file_path: str, document_id: int, db: Session):
             chunk.metadata["document_id"] = document_id
 
         # 4. Initialize Gemini Embeddings
-        embeddings = GoogleGenerativeAIEmbeddings(
-            model=settings.gemini_embedding_model,
-            google_api_key=settings.gemini_api_key
-        )
+        embeddings = get_embeddings()
 
         # 5. Push chunks and embeddings to ChromaDB
         # Chroma automatically creates the directory if it doesn't exist
