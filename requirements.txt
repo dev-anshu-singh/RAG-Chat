@@ -10,6 +10,8 @@ langchain-core
 langchain-community
 langgraph
 
+langsmith
+
 langchain-google-genai
 langchain-cohere
 langchain-chroma
@@ -18,3 +20,10 @@ chromadb
 cohere
 
 pymupdf
+
+streamlit
+requests
+pandas
+
+pytest
+httpx
