@@ -7,9 +7,9 @@ WORKDIR /frontend
 
 COPY requirements.txt /frontend/
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt \
+    pip install --no-cache-dir -r requirements.txt
 
-COPY ./frontend.py /frontend/
+COPY ./frontend/frontend.py /frontend/
 
 EXPOSE 8501
 

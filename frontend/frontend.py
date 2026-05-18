@@ -1,9 +1,11 @@
 import streamlit as st
 import requests
 import pandas as pd
+import os
 
-# The URL where your FastAPI server is running
-API_BASE_URL = "http://127.0.0.1:8000"
+# The URL where the FastAPI server is running.
+# Local development defaults to localhost; Docker Compose overrides this to http://backend:8000.
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
 
 # --- Page Configuration ---
 st.set_page_config(
